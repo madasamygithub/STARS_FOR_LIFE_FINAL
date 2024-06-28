@@ -53,6 +53,11 @@ const transporter = nodemailer.createTransport({
   }
 });
 
+
+app.get('/', (req, res) => {
+  res.send('Hello, World!');
+});
+
 // Send email route
 app.post('/send-email', async (req, res) => {
   const { message, year } = req.body;
