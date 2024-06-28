@@ -27,7 +27,7 @@ function Btech() {
 
   const fetchFiles = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/files');
+      const response = await axios.get('${process.env.REACT_APP_BACKEND_URL}/files');
       setFiles(response.data); // Assuming response.data is an array of objects
       setFilteredFiles(response.data); // Initialize filteredFiles with fetched data
     } catch (error) {
@@ -62,7 +62,7 @@ function Btech() {
     formData.append('contributor', contributor);
 
     try {
-      await axios.post('http://localhost:5000/upload', formData, {
+      await axios.post('${process.env.REACT_APP_BACKEND_URL}/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -92,7 +92,7 @@ function Btech() {
 
   const handleDownload = async (fileName) => {
     try {
-      const response = await axios.get(`http://localhost:5000/download/${fileName}`, {
+      const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/download/${fileName}`, {
         responseType: 'blob'
       });
       const url = window.URL.createObjectURL(new Blob([response.data]));

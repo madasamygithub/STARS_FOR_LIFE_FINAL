@@ -35,7 +35,7 @@ function ProfileSettings() {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      const response = await fetch(`http://localhost:5000/api/usersupdate/${user.email}`, {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/usersupdate/${user.email}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

@@ -18,7 +18,7 @@ function Dudes() {
     // Fetch user data from API
     const fetchUsers = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/users');
+        const response = await axios.get('${process.env.REACT_APP_BACKEND_URL}/api/users');
         setUsers(response.data);
         setFilteredUsers(response.data);
       } catch (error) {

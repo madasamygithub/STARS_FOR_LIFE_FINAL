@@ -16,7 +16,7 @@ function Meetings() {
   useEffect(() => {
     async function fetchMeetingHistory() {
       try {
-        const response = await axios.get('http://localhost:5000/meeting-history');
+        const response = await axios.get('${process.env.REACT_APP_BACKEND_URL}/meeting-history');
         if (response.status === 200) {
           setMeetings(response.data);
           setLoadingMeetings(false);
@@ -35,7 +35,7 @@ function Meetings() {
 
   const handleResponseSubmit = async (meetingId) => {
     try {
-      const response = await axios.post(`http://localhost:5000/api/meetings/${meetingId}/respond`, { email: user.email });
+      const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/meetings/${meetingId}/respond`, { email: user.email });
       if (response.status === 200) {
         alert('Response submitted successfully');
         // Update local state to reflect the new response count

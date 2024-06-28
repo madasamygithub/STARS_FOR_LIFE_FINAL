@@ -16,7 +16,7 @@ function Archives() {
 
   const fetchImages = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/images');
+      const response = await axios.get('${process.env.REACT_APP_BACKEND_URL}/images');
       setImages(response.data);
     } catch (error) {
       console.error('Error fetching images', error);
@@ -35,7 +35,7 @@ function Archives() {
     formData.append('image', file);
 
     try {
-      await axios.post('http://localhost:5000/upload/image', formData, {
+      await axios.post('${process.env.REACT_APP_BACKEND_URL}/upload/image', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -65,7 +65,7 @@ function Archives() {
     try {
       console.log('Downloading file:', fileName);
 
-      const response = await axios.get(`http://localhost:5000/download/${fileName}`, {
+      const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/download/${fileName}`, {
         responseType: 'blob',
       });
 
@@ -95,7 +95,7 @@ function Archives() {
         <div className="images-container">
           {images.map((image, index) => (
             <div key={index} className="card">
-              <img src={`http://localhost:5000/uploads/${image.path}`} alt={image.name} />
+              <img src={`${process.env.REACT_APP_BACKEND_URL}/uploads/${image.path}`} alt={image.name} />
               <div className="card-content">
                 <p>{image.name}</p>
                 <button onClick={() => handleDownload(image.name)}>Download</button>

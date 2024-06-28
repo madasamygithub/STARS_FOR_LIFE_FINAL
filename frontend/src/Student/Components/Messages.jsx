@@ -18,7 +18,7 @@ function Messages() {
   useEffect(() => {
     async function fetchMessageHistory() {
       try {
-        const response = await axios.get('http://localhost:5000/message-history');
+        const response = await axios.get('${process.env.REACT_APP_BACKEND_URL}/message-history');
         if (response.status === 200) {
           setMessages(response.data); // Assuming response.data is an array of messages
           setLoadingMessages(false);
@@ -39,7 +39,7 @@ function Messages() {
   // Function to handle responding to a message
   const handleRespond = async (messageId) => {
     try {
-      const response = await axios.post(`http://localhost:5000/api/messages/${messageId}/respond`, { email: user.email });
+      const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/messages/${messageId}/respond`, { email: user.email });
       if (response.status === 200) {
         alert('Response submitted successfully');
         // Update local state to reflect the new response count

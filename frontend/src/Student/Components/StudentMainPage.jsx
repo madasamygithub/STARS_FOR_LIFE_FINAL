@@ -43,7 +43,7 @@ function StudentMainPage() {
 
   const fetchImages = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/achievements');
+      const response = await axios.get('${process.env.REACT_APP_BACKEND_URL}/achievements');
       console.log('Response:', response.data); 
       setImages(response.data); 
     } catch (error) {
@@ -159,7 +159,7 @@ function StudentMainPage() {
         <Slider {...settings}>
           {images.map((img, idx) => (
             <div className={idx === imageIndex ? "slide activeSlide" : "slide"} key={idx}>
-              <img src={`http://localhost:5000${img.imageUrl}`} alt={`achievement-${idx}`} />
+              <img src={`${process.env.REACT_APP_BACKEND_URL}${img.imageUrl}`} alt={`achievement-${idx}`} />
             </div>
           ))}
         </Slider>

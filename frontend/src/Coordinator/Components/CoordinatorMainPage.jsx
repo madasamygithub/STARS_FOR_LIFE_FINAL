@@ -40,7 +40,7 @@ function CoordinatorMainPage() {
   useEffect(() => {
     async function fetchMeetingHistory() {
       try {
-        const response = await axios.get("http://localhost:5000/meeting-history");
+        const response = await axios.get("${process.env.REACT_APP_BACKEND_URL}/meeting-history");
 
         if (response.status === 200) {
           setMeetings(response.data); // Assuming response.data is an array of meetings
@@ -62,7 +62,7 @@ function CoordinatorMainPage() {
   useEffect(() => {
     const fetchStatistics = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/statistics");
+        const response = await axios.get("${process.env.REACT_APP_BACKEND_URL}/statistics");
         if (response.status === 200) {
           setStatistics(response.data);
         } else {
@@ -80,7 +80,7 @@ function CoordinatorMainPage() {
   useEffect(() => {
     async function fetchMessageHistory() {
       try {
-        const response = await axios.get("http://localhost:5000/message-history");
+        const response = await axios.get("${process.env.REACT_APP_BACKEND_URL}/message-history");
 
         if (response.status === 200) {
           setMessages(response.data); // Assuming response.data is an array of messages
@@ -170,7 +170,7 @@ function CoordinatorMainPage() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:5000/send-emailmeeting",
+        "${process.env.REACT_APP_BACKEND_URL}/send-emailmeeting",
         meetingDetails
       );
 
@@ -188,7 +188,7 @@ function CoordinatorMainPage() {
   const handleSend = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/send-email", {
+      const response = await axios.post("${process.env.REACT_APP_BACKEND_URL}/send-email", {
         message,
         year,
       });
@@ -206,7 +206,7 @@ function CoordinatorMainPage() {
 
   const handleDeleteMeeting = async (meetingId) => {
     try {
-      const response = await axios.delete(`http://localhost:5000/meetings/${meetingId}`);
+      const response = await axios.delete(`${process.env.REACT_APP_BACKEND_URL}/meetings/${meetingId}`);
 
       if (response.status === 200) {
         alert("Meeting deleted successfully");

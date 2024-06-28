@@ -70,7 +70,7 @@ function AlumniMainPage() {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:5000/register', formData);
+      const response = await axios.post('${process.env.REACT_APP_BACKEND_URL}/register', formData);
 
       if (response.status === 200) {
         setRegistrationStatus({ success: true, error: false });

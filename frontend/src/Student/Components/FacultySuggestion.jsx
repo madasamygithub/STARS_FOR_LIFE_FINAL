@@ -35,7 +35,7 @@ function FacultySuggestion() {
 
   async function fetchSuggestions() {
     try {
-      const response = await axios.get("http://localhost:5000/api/suggestions");
+      const response = await axios.get("${process.env.REACT_APP_BACKEND_URL}/api/suggestions");
       if (response.data && Array.isArray(response.data)) {
         setSuggestions(response.data);
       } else {
@@ -60,7 +60,7 @@ function FacultySuggestion() {
     };
 
     try {
-      const response = await axios.post("http://localhost:5000/api/suggestions", newSuggestion);
+      const response = await axios.post("${process.env.REACT_APP_BACKEND_URL}/api/suggestions", newSuggestion);
       const addedSuggestion = response.data.suggestion;
       setSuggestions([...suggestions, addedSuggestion]);
 
@@ -116,7 +116,7 @@ function FacultySuggestion() {
    
     try {
       const response = await axios.put(
-        `http://localhost:5000/api/suggestions/${id}/updateRating`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/suggestions/${id}/updateRating`,
         { 
           rating: parseFloat(rating),
           email: user.email// Include user's email in the request

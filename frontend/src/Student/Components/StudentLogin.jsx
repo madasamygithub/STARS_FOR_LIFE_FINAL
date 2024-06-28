@@ -57,7 +57,7 @@ function StudentLogin() {
     setLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:5000/api/signup', formDataSignup);
+      const response = await axios.post('${process.env.REACT_APP_BACKEND_URL}/api/signup', formDataSignup);
       setLoading(false);
 
       if (response.status === 201) {
@@ -86,7 +86,7 @@ function StudentLogin() {
     };
 
     try {
-      const response = await axios.post('http://localhost:5000/api/login', userCredentials);
+      const response = await axios.post('${process.env.REACT_APP_BACKEND_URL}/api/login', userCredentials);
       setLoading(false);
 
       if (response.status === 200) {
@@ -109,7 +109,7 @@ function StudentLogin() {
     setLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:5000/api/send-otp', { email: formDataOTP.email });
+      const response = await axios.post('${process.env.REACT_APP_BACKEND_URL}/api/send-otp', { email: formDataOTP.email });
       setLoading(false);
 
       if (response.status === 200) {
@@ -130,7 +130,7 @@ function StudentLogin() {
     setLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:5000/api/verify-otp', {
+      const response = await axios.post('${process.env.REACT_APP_BACKEND_URL}api/verify-otp', {
         email: formDataOTP.email,
         otp: formDataOTP.otp,
         newPassword: formDataOTP.newPassword,
