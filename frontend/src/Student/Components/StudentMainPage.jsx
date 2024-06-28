@@ -43,7 +43,7 @@ function StudentMainPage() {
 
   const fetchImages = async () => {
     try {
-      const response = await axios.get('${process.env.REACT_APP_BACKEND_URL}/achievements');
+      const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/achievements`);
       console.log('Response:', response.data); 
       setImages(response.data); 
     } catch (error) {
