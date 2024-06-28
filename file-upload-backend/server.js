@@ -1,5 +1,7 @@
 
 require('dotenv').config();
+
+
 const express = require('express');
 const cors = require('cors');
 const multer = require('multer');
@@ -24,11 +26,13 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-mongoose.connect('mongodb://localhost:27017/mydatabase', {
+
+const MONGO_URI = process.env.MONGO_URI;
+
+console.log(MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
-
 
 
 

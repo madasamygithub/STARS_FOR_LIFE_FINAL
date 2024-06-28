@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 // Replace 'mydatabase' with your actual database name
-const DB_URL = 'mongodb://localhost:27017/mydatabase';
+const DB_URL = 'mongodb+srv://madasamy22:2272004@cluster0.iw1dpbz.mongodb.net/stars-database?retryWrites=true&w=majority&appName=Cluster0';
 
 mongoose.connect(DB_URL, {
   useNewUrlParser: true,
