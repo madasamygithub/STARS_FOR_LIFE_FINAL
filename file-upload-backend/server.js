@@ -184,7 +184,9 @@ app.get('/message-history', async (req, res) => {
 });
 
 app.get('/api/users', async (req, res) => {
+  console.log("hi");
   try {
+    
     const users = await User.find();
     res.status(200).json(users);
   } catch (error) {
