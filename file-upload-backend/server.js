@@ -197,6 +197,7 @@ app.get('/api/users', async (req, res) => {
 const upload = multer({ storage: storage });
 app.post('/api/signup', async (req, res) => {
   const { name, year, department, regno, phone, district ,email, password } = req.body;
+  console.log('hi backendd..........');
 
   try {
   
