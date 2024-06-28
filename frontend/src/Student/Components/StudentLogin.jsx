@@ -130,7 +130,7 @@ function StudentLogin() {
     setLoading(true);
 
     try {
-      const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/verify-otp`s, {
+      const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/verify-otp`, {
         email: formDataOTP.email,
         otp: formDataOTP.otp,
         newPassword: formDataOTP.newPassword,
