@@ -171,7 +171,7 @@ function ProfileSettings() {
                   <p>Mohamed Zubair</p>
                 </div>
                 <div className="line">
-                  <Link to="https://zubair5235.github.io/personalsite/">More...</Link>
+                  <Link to="https://connectwithzubair.netlify.app/">More...</Link>
                 </div>
                 <div className="line">
                   <img src={Developer} alt="Developer logo" />
@@ -180,7 +180,7 @@ function ProfileSettings() {
                 </div>
                 <div className="line p">Madasamy S</div>
                 <div className="line">
-                  <Link to="">More...</Link>
+                  <Link to="https://madasamygithub.github.io/portfolio/">More...</Link>
                 </div>
               </div>
             </div>
