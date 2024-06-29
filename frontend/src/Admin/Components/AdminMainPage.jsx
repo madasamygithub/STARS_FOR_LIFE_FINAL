@@ -91,14 +91,14 @@ function AdminMainPage() {
     formData.append('image', file);
 
     try {
-      const response = await axios.post('${process.env.REACT_APP_BACKEND_URL}/api/uploadachievement`, formData, {
+      const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/uploadachievement`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
       });
       if (response.data.success) {
         alert('Image uploaded successfully');
-        // Optionally, you can perform additional actions after successful upload
+        
       } else {
         alert('Image upload failed');
       }
