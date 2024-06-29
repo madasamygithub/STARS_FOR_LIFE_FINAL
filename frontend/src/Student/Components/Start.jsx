@@ -27,7 +27,7 @@ function Start() {
             </Link>
           </div>
 
-         
+       { /* 
           <div className="logins admin">
             <h2>Admin</h2>
             <Link to="/adminlogin">
@@ -49,7 +49,7 @@ function Start() {
       <Link to="/coordinatorlogin">
         <img src={enter} alt="enter-icon" />
       </Link>
-    </div>
+    </div>*/}
         </div>
       </div>
     </>
