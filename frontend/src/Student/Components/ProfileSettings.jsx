@@ -16,8 +16,7 @@ function ProfileSettings() {
     district: user.district,
     regno: user.regno,
   });
-  const [updateSuccess, setUpdateSuccess] = useState(false); // State for managing the popup message
-
+  const [updateSuccess, setUpdateSuccess] = useState(false);
   const navigate = useNavigate();
 
   if (!user) {
@@ -45,8 +44,8 @@ function ProfileSettings() {
       if (response.ok) {
         const updatedUser = await response.json();
         setUser(updatedUser);
-        setUpdateSuccess(true); // Show the popup on successful update
-        setTimeout(() => setUpdateSuccess(false), 3000); // Hide the popup after 3 seconds
+        setUpdateSuccess(true); 
+        setTimeout(() => setUpdateSuccess(false), 3000); 
       } else {
         console.error('Error updating user:', response.statusText);
       }

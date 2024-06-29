@@ -6,8 +6,8 @@ import { UserContext } from '../context/UserContext';
 import axios from "axios";
 import "../CSS/FacultySuggestion.css";
 import Search from "../Assets/Filter-SearchIcon.png";
-import FilledStar from "../Assets/FilledStar.png"; // Replace with your filled star icon path
-import EmptyStar from "../Assets/EmptyStar.png"; // Replace with your empty star icon path
+import FilledStar from "../Assets/FilledStar.png"; 
+import EmptyStar from "../Assets/EmptyStar.png"; 
 
 
 function FacultySuggestion() {
@@ -23,11 +23,11 @@ function FacultySuggestion() {
   const [school, setSchool] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const [newRatings, setNewRatings] = useState({}); // For storing new ratings
+  const [newRatings, setNewRatings] = useState({});
 
   const [showRatingModal, setShowRatingModal] = useState(false);
   const [currentSuggestionId, setCurrentSuggestionId] = useState("");
-  const [selectedRating, setSelectedRating] = useState(0); // State to store selected rating
+  const [selectedRating, setSelectedRating] = useState(0); 
 
   useEffect(() => {
     fetchSuggestions();
@@ -35,7 +35,7 @@ function FacultySuggestion() {
 
   async function fetchSuggestions() {
     try {
-      const response = await axios.get("${process.env.REACT_APP_BACKEND_URL}/api/suggestions");
+      const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/suggestions`);
       if (response.data && Array.isArray(response.data)) {
         setSuggestions(response.data);
       } else {
@@ -55,12 +55,12 @@ function FacultySuggestion() {
       subjectName,
       facultyName,
       school,
-      ratings: selectedRating // Use selectedRating instead of ratings
+      ratings: selectedRating 
       
     };
 
     try {
-      const response = await axios.post("${process.env.REACT_APP_BACKEND_URL}/api/suggestions", newSuggestion);
+      const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/suggestions`, newSuggestion);
       const addedSuggestion = response.data.suggestion;
       setSuggestions([...suggestions, addedSuggestion]);
 
@@ -68,7 +68,7 @@ function FacultySuggestion() {
       setSubjectName("");
       setFacultyName("");
       setSchool("");
-      setSelectedRating(0); // Reset selectedRating
+      setSelectedRating(0); 
 
       handleCloseNewSuggestion();
     } catch (error) {
@@ -76,42 +76,42 @@ function FacultySuggestion() {
     }
   }
 
-  // Function to filter suggestions by faculty name
+ 
   const filterByFacultyName = (suggestion) => {
     if (searchTerm === "") {
-      return true; // Show all if no search term
+      return true; 
     }
     return suggestion.facultyName.toLowerCase().includes(searchTerm.toLowerCase());
   };
 
-  // Function to handle navigation back to main page
+  
   function handleHomeNavigation() {
     navigate("/mainpage");
   }
 
-  // Function to open suggestion form
+  
   function handleOpenNewSuggestion() {
     suggestionFormContainer.current.classList.add("show");
   }
 
-  // Function to close suggestion form
+ 
   function handleCloseNewSuggestion() {
     suggestionFormContainer.current.classList.remove("show");
   }
 
-  // Handle opening rating modal
+ 
   function handleOpenRatingModal(id) {
     setCurrentSuggestionId(id);
     setShowRatingModal(true);
   }
 
-  // Handle closing rating modal
+ 
   function handleCloseRatingModal() {
     setShowRatingModal(false);
     setCurrentSuggestionId("");
   }
 
-  // Handle rating update
+ 
   async function handleRatingUpdate(id, rating) {
    
     try {
@@ -125,9 +125,9 @@ function FacultySuggestion() {
   
       const updatedSuggestion = response.data;
       setSuggestions(suggestions.map(suggestion => (suggestion._id === id ? updatedSuggestion : suggestion)));
-      setNewRatings({ ...newRatings, [id]: "" }); // Clear the input after updating
-      setSelectedRating(0); // Reset selectedRating after update
-      handleCloseRatingModal(); // Close the modal after update
+      setNewRatings({ ...newRatings, [id]: "" }); 
+      setSelectedRating(0); 
+      handleCloseRatingModal();
     } catch (error) {
       if (error.response && error.response.data.message === 'User has already responded') {
         alert('You have already responded to this message');
@@ -201,7 +201,6 @@ function FacultySuggestion() {
         
       </div>
 
-      {/* Rating Modal */}
       {showRatingModal && (
         <div className="rating-modal">
           <div className="rating-modal-content">

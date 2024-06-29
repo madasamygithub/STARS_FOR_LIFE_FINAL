@@ -16,7 +16,7 @@ function Archives() {
 
   const fetchImages = async () => {
     try {
-      const response = await axios.get('${process.env.REACT_APP_BACKEND_URL}/images');
+      const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/images`);
       setImages(response.data);
     } catch (error) {
       console.error('Error fetching images', error);
@@ -35,7 +35,7 @@ function Archives() {
     formData.append('image', file);
 
     try {
-      await axios.post('${process.env.REACT_APP_BACKEND_URL}/upload/image', formData, {
+      await axios.post(`${process.env.REACT_APP_BACKEND_URL}/upload/image`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

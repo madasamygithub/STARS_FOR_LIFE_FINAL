@@ -3,7 +3,6 @@ import { Icon } from "@iconify/react";
 import axios from 'axios';
 import "../CSS/Btech.css";
 
-// Replace with actual import paths
 import Home from "../Assets/Home Icon.jpg";
 import Search from "../Assets/Filter-SearchIcon.png";
 
@@ -23,13 +22,13 @@ function Btech() {
 
   useEffect(() => {
     filterFiles();
-  }, [searchQuery, files]); // Update filteredFiles when searchQuery or files change
+  }, [searchQuery, files]); 
 
   const fetchFiles = async () => {
     try {
-      const response = await axios.get('${process.env.REACT_APP_BACKEND_URL}/files');
-      setFiles(response.data); // Assuming response.data is an array of objects
-      setFilteredFiles(response.data); // Initialize filteredFiles with fetched data
+      const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/files`);
+      setFiles(response.data); 
+      setFilteredFiles(response.data); 
     } catch (error) {
       console.error('Error fetching files', error);
     }
@@ -37,7 +36,7 @@ function Btech() {
 
   const filterFiles = () => {
     if (searchQuery.trim() === '') {
-      setFilteredFiles(files); // Reset filteredFiles to all files if searchQuery is empty
+      setFilteredFiles(files);
     } else {
       const filtered = files.filter(file =>
         file.subjectCode.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -48,7 +47,7 @@ function Btech() {
   };
 
   const handleFileChange = (e) => {
-    // Update state with selected files
+  
     setFiles(Array.from(e.target.files));
   };
 
@@ -62,15 +61,14 @@ function Btech() {
     formData.append('contributor', contributor);
 
     try {
-      await axios.post('${process.env.REACT_APP_BACKEND_URL}/upload', formData, {
+      await axios.post(`${process.env.REACT_APP_BACKEND_URL}/upload`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
       });
       alert('File uploaded successfully');
       contributionFormContainer.current.classList.remove("show");
-      fetchFiles(); // Refresh files after upload
-      // Reset form fields after successful upload
+      fetchFiles(); 
       setSubjectCode('');
       setSubjectName('');
       setMaterialName('');

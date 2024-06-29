@@ -16,7 +16,7 @@ function Meetings() {
   useEffect(() => {
     async function fetchMeetingHistory() {
       try {
-        const response = await axios.get('${process.env.REACT_APP_BACKEND_URL}/meeting-history');
+        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/meeting-history`);
         if (response.status === 200) {
           setMeetings(response.data);
           setLoadingMeetings(false);

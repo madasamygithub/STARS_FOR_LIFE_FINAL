@@ -15,10 +15,9 @@ function ProfileSettings() {
     newPassword: '',
     confirmNewPassword: ''
   });
-  const [updateSuccess, setUpdateSuccess] = useState(false); // State for managing the popup message
-  const [updateError, setUpdateError] = useState(null); // State for managing the error message
-  const [passwordChangeSuccess, setPasswordChangeSuccess] = useState(false); // State for password change success message
-
+  const [updateSuccess, setUpdateSuccess] = useState(false); 
+  const [updateError, setUpdateError] = useState(null); 
+  const [passwordChangeSuccess, setPasswordChangeSuccess] = useState(false); 
   const navigate = useNavigate();
 
   function handleHomeNavigation() {
@@ -57,11 +56,11 @@ function ProfileSettings() {
         const updatedUser = await response.json();
         setUser(updatedUser);
         setUpdateSuccess(true);
-        setPasswordChangeSuccess(true); // Show password change success popup
+        setPasswordChangeSuccess(true); 
         setUpdateError(null);
         setTimeout(() => {
           setUpdateSuccess(false);
-          setPasswordChangeSuccess(false); // Hide password change success popup after 3 seconds
+          setPasswordChangeSuccess(false); 
         }, 3000);
       } else {
         const errorData = await response.json();

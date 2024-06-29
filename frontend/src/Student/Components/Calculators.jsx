@@ -1,8 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useRef, useState } from "react";
 import { Icon } from "@iconify/react";
-import "../CSS/Calculators.css"; // Assuming this file contains specific styles for the Calculators component
-
+import "../CSS/Calculators.css"; 
 import Home from "../Assets/Home Icon.jpg";
 
 function Calculators() {
@@ -16,7 +15,7 @@ function Calculators() {
   const toggleButtonRef = useRef();
   const resultRef = useRef();
 
-  const [mode, setMode] = useState("CGPA"); // State to manage CGPA or GPA mode
+  const [mode, setMode] = useState("CGPA"); 
   const [rows, setRows] = useState([
     { id: 1, title: "Semester 1", grade: "", credits: "", gpa: "" },
   ]);
@@ -40,7 +39,7 @@ function Calculators() {
     const newMode = mode === "CGPA" ? "GPA" : "CGPA";
     setMode(newMode);
     setRows([{ id: 1, title: newMode === "CGPA" ? "Semester 1" : "Subject 1", grade: "", credits: "", gpa: "" }]);
-    setResult(""); // Clear the result when switching modes
+    setResult("");
   };
 
   const handleAddMore = () => {

@@ -21,7 +21,7 @@ function AdminMainPage() {
     // Fetch user data from API
     const fetchUsers = async () => {
       try {
-        const response = await axios.get('${process.env.REACT_APP_BACKEND_URL}/api/users');
+        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/users`);
         setUsers(response.data);
         setFilteredUsers(response.data);
       } catch (error) {
@@ -91,7 +91,7 @@ function AdminMainPage() {
     formData.append('image', file);
 
     try {
-      const response = await axios.post('${process.env.REACT_APP_BACKEND_URL}/api/uploadachievement', formData, {
+      const response = await axios.post('${process.env.REACT_APP_BACKEND_URL}/api/uploadachievement`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
