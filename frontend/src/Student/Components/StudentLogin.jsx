@@ -166,9 +166,9 @@ function StudentLogin() {
           <div className="spinner"></div>
         </div>
       )}
-      <div className="logo">
+     {/* <div className="logo">
         <img src={Logo} alt="Logo" />
-      </div>
+      </div>*/}
       <div className="contents-container">
         <div className="paragraph">
           <p>
