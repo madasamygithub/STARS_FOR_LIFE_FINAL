@@ -92,7 +92,7 @@ function StudentLogin() {
       if (response.status === 200) {
         if (response.data.message === 'Login successful') {
           setUser(response.data.user);
-          navigate('/mainpage');
+         /* navigate('/mainpage');*/
         }
       } else if (response.status === 400) {
         setErrorMessage(response.data.message);
