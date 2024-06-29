@@ -22,32 +22,32 @@ function Projects() {
     Navigate("/mainpage");
   }
 
-  // Function to open the contribution form
+  
   function handleOpenNewSuggestion() {
     contributionFormContainer.current.classList.add("show");
   }
 
-  // Function to close the contribution form
+ 
   function handleCloseNewContribution() {
     contributionFormContainer.current.classList.remove("show");
   }
 
-  // Function to open the details container
+
   function handleOpenDetails() {
     detailsContainer.current.classList.add("show");
   }
 
-  // Function to close the details container
+
   function handleCloseDetails() {
     detailsContainer.current.classList.remove("show");
   }
 
-  // JSX structure for the Projects component
+ 
   return (
     <>
-      {/* Main container for the Projects page */}
+      
       <div className="projects-container">
-        {/* Top bar containing Home and Contribute buttons */}
+       
         <div className="topBar">
           <button className="home-btn" onClick={handleHomeNavigation}>
             <img src={Home} alt="" />
@@ -58,7 +58,7 @@ function Projects() {
           </button>
         </div>
         
-        {/* Filters section for searching and filtering projects */}
+      
         <div className="filters">
           <div className="leftSide">
             <div className="filters-searchBar">
@@ -67,7 +67,7 @@ function Projects() {
             </div>
           </div>
           <div className="rightSide">
-            {/* Input fields for filtering projects by subject code, department, and program */}
+           
             <div className="subjectCode filter">
               <input type="text" list="subjectCode" placeholder="Subject Code" />
               <datalist id="subjectCode">

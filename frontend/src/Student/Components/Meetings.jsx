@@ -4,10 +4,10 @@ import { useNavigate } from "react-router-dom";
 import "../CSS/Meetings.css";
 import Home from "../Assets/Home Icon.jpg";
 import Search from "../Assets/Filter-SearchIcon.png";
-import { UserContext } from '../context/UserContext'; // Import UserContext
+import { UserContext } from '../context/UserContext'; 
 
 function Meetings() {
-  const { user } = useContext(UserContext); // Get user from context
+  const { user } = useContext(UserContext); 
   const navigate = useNavigate();
   const [meetings, setMeetings] = useState([]);
   const [loadingMeetings, setLoadingMeetings] = useState(true);
@@ -38,7 +38,7 @@ function Meetings() {
       const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/meetings/${meetingId}/respond`, { email: user.email });
       if (response.status === 200) {
         alert('Response submitted successfully');
-        // Update local state to reflect the new response count
+       
         setMeetings((prevMeetings) =>
           prevMeetings.map((meeting) =>
             meeting._id === meetingId ? { ...meeting, responses: meeting.responses + 1 } : meeting
@@ -57,13 +57,13 @@ function Meetings() {
 
   return (
     <div className="meetings-container">
-      {/* Top Bar */}
+    
       <div className="topBar">
         <button className="home-btn" onClick={() => navigate("/mainpage")}>
           <img src={Home} alt="Home Icon" /> Home
         </button>
       </div>
-      {/* Filters Section */}
+    
       <div className="filters">
         <div className="leftSide">
           <div className="filters-searchBar">
@@ -83,7 +83,7 @@ function Meetings() {
           </div>
         </div>
       </div>
-      {/* Meetings Table */}
+      
       <div className="meetings-table">
         <table>
           <thead>

@@ -12,7 +12,7 @@ export const UserProvider = ({ children }) => {
     // Check if user is already logged in
     const checkLoggedInUser = async () => {
       try {
-        const response = await axios.get('${process.env.REACT_APP_BACKEND_URL}/api/users');
+        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/users`);
         if (response.status === 200) {
           setUser(response.data.user);
         }

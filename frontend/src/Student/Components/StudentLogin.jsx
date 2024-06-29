@@ -92,7 +92,7 @@ function StudentLogin() {
       if (response.status === 200) {
         if (response.data.message === 'Login successful') {
           setUser(response.data.user);
-         /* navigate('/mainpage');*/
+          navigate('/mainpage');
         }
       } else if (response.status === 400) {
         setErrorMessage(response.data.message);
@@ -166,19 +166,19 @@ function StudentLogin() {
           <div className="spinner"></div>
         </div>
       )}
-     {/* <div className="logo">
+     { <div className="logo">
         <img src={Logo} alt="Logo" />
-      </div>*/}
+      </div>}
       <div className="contents-container">
         <div className="paragraph">
           <p>
-            {/*Fear of Exams? Can’t Find a right material to SCORE well? Want to
+            Fear of Exams? Can’t Find a right material to SCORE well? Want to
             know what coordinator is  telling? Want to get the email notification for each meeting?
             Want to Calculate GPA and CGPA? Want to
             find the district mate? Help from seniors? Hear it from Alumni’s
             .... Come Let’s Talk about What’s. in your mind? Want to store your Stars day memories?
             Tired of sending google forms for registration.... No problem we have solutions for
-            that...*/}
+            that...
           </p>
         </div>
         <div className="login-container">

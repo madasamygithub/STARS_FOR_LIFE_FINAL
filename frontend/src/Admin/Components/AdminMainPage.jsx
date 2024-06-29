@@ -18,7 +18,7 @@ function AdminMainPage() {
   const contentContainerRef = useRef(null);
 
   useEffect(() => {
-    // Fetch user data from API
+
     const fetchUsers = async () => {
       try {
         const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/users`);
@@ -110,7 +110,7 @@ function AdminMainPage() {
 
   const handlePost = (e) => {
     e.preventDefault();
-    handleFileChange(e); // Call handleFileChange on form submit
+    handleFileChange(e); 
   };
 
   const handleLogout = () => {
@@ -149,7 +149,7 @@ function AdminMainPage() {
                   accept="image/png, image/jpg, image/jpeg, video/mp4"
                   onChange={handleFileChange}
                   ref={fileInputRef}
-                  style={{ display: 'none' }} // Hide the input
+                  style={{ display: 'none' }} 
                 />
                 <button
                   type="button"
