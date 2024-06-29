@@ -13,9 +13,9 @@ function Start() {
       
       <div className="start-container">
         
-        <div className="logo">
+      {/*  <div className="logo">
           <img src={logo} alt="logo" />
-        </div>
+        </div>*/}
 
        
         <div className="logins-container">
