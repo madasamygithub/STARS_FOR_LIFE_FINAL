@@ -30,7 +30,7 @@ function Start() {
        
           <div className="logins admin">
             <h2>Admin</h2>
-            <Link to="">  {/*/adminlogin */}
+            <Link to="">  {/adminlogin }
               <img src={enter} alt="enter-icon" />
             </Link>
           </div>
@@ -38,7 +38,7 @@ function Start() {
           
           <div className="logins alumni">
             <h2>Alumni</h2>
-            <Link to="">   {/*/alumnilogin */}
+            <Link to="">   {/alumnilogin}
               <img src={enter} alt="enter-icon" />
             </Link>
           </div>
@@ -46,7 +46,7 @@ function Start() {
          
           <div className="logins sc">
       <h2>Stars Coordinator</h2>
-      <Link to="">{/* /coordinatorlogin*/}
+      <Link to="">{/coordinatorlogin}
         <img src={enter} alt="enter-icon" />
       </Link>
     </div>
